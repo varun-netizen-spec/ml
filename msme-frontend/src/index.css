@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌿 How’s My Plant? — Natural UI Theme
+   Soft matte design, no glow or glass.
+   Color palette: forest green, moss, soil black, muted sunlight yellow.
+*/
+
+@layer base {
+  :root {
+    /* Light mode 🌞 */
+    --background: 48 35% 93%;
+    --foreground: 170 25% 10%;
+
+    --card: 48 35% 97%;
+    --card-foreground: 170 25% 10%;
+
+    --popover: 48 35% 98%;
+    --popover-foreground: 170 25% 10%;
+
+    --primary: 150 35% 28%; /* Deep forest green */
+    --primary-foreground: 48 100% 96%; /* Pale leaf */
+
+    --secondary: 48 20% 92%; /* Muted cream */
+    --secondary-foreground: 150 35% 28%;
+
+    --accent: 52 95% 65%; /* Sunlit yellow */
+    --accent-foreground: 150 35% 20%;
+
+    --muted: 48 10% 90%;
+    --muted-foreground: 170 10% 35%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 48 100% 98%;
+
+    --border: 48 10% 85%;
+    --input: 48 10% 85%;
+    --ring: 150 35% 28%;
+
+    --radius: 0.4rem; /* No corner radius — flat, clean */
+
+    --transition-smooth: all 0.25s ease-out;
+
+    --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.05);
+    --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
+    /* Dark mode 🌙 — warm soil black + forest contrast */
+    --background: 160 10% 8%;
+    --foreground: 48 35% 96%;
+
+    --card: 160 10% 10%;
+    --card-foreground: 48 35% 96%;
+
+    --popover: 160 10% 10%;
+    --popover-foreground: 48 35% 96%;
+
+    --primary: 150 40% 35%; /* Moss green */
+    --primary-foreground: 48 100% 96%;
+
+    --secondary: 160 8% 18%; /* Muted warm black */
+    --secondary-foreground: 48 35% 95%;
+
+    --accent: 52 90% 60%; /* Warm sunlight accent */
+    --accent-foreground: 160 10% 10%;
+
+    --muted: 160 10% 20%;
+    --muted-foreground: 48 25% 80%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 48 100% 98%;
+
+    --border: 160 10% 20%;
+    --input: 160 10% 20%;
+    --ring: 150 35% 35%;
+
+    --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter Tight', 'Nunito Sans', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  button, input, select, textarea {
+    border-radius: 0; /* no rounded corners */
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(90deg, hsl(150, 35%, 28%), hsl(52, 95%, 65%));
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .card-hover {
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-card);
+    background: var(--card);
+  }
+
+  .card-hover:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  .glass-effect {
+    background-color: hsl(var(--card));
+    backdrop-filter: none;
+    box-shadow: var(--shadow-card);
+  }
+}
+
+/* Make UI elements always appear above the Leaflet map */
+.leaflet-container {
+  z-index: 0 !important;
+}
+
+[data-radix-popper-content-wrapper] {
+  z-index: 2000 !important;
+}

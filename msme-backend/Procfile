@@ -1,0 +1,1 @@
+web: gunicorn --config gunicorn.conf.py plant_disease_app:app

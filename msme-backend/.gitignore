@@ -1,0 +1,43 @@
+# Virtual environment
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Model files - EXCLUDE from Git (will be created during deployment)
+plant_disease_model.h5
+model_metadata.json
+
+# Environment variables
+.env
+
+# Test files (optional - you can include these if you want)
+test_fix.py
+demo_api.py
+
+# Large test images (exclude any test images you might add)
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.bmp
